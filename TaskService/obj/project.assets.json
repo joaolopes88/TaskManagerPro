@@ -75,19 +75,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\i.ciobanu\\.nuget\\packages\\": {}
+    "C:\\Users\\ednilson.sucuacuacue\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\i.ciobanu\\Documents\\GitHub\\TaskManagerPro\\TaskService\\TaskService.csproj",
+      "projectUniqueName": "C:\\Users\\ednilson.sucuacuacue\\Documents\\GitHub\\TaskManagerPro\\TaskService\\TaskService.csproj",
       "projectName": "TaskService",
-      "projectPath": "C:\\Users\\i.ciobanu\\Documents\\GitHub\\TaskManagerPro\\TaskService\\TaskService.csproj",
-      "packagesPath": "C:\\Users\\i.ciobanu\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\i.ciobanu\\Documents\\GitHub\\TaskManagerPro\\TaskService\\obj\\",
+      "projectPath": "C:\\Users\\ednilson.sucuacuacue\\Documents\\GitHub\\TaskManagerPro\\TaskService\\TaskService.csproj",
+      "packagesPath": "C:\\Users\\ednilson.sucuacuacue\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\ednilson.sucuacuacue\\Documents\\GitHub\\TaskManagerPro\\TaskService\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\i.ciobanu\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\ednilson.sucuacuacue\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net9.0"

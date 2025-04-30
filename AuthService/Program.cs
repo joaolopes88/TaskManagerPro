@@ -36,7 +36,7 @@ app.MapPost("/register", async (RegisterRequest request, AppDbContext dbContext)
     {
         Username = request.Username,
         Email = request.Email,
-        PasswordHash = BCrypt.Net.BCrypt.HashPassword(request.Password) // Hash the password
+        PasswordHash = BCrypt.Net.BCrypt.HashPassword(request.Password) 
     };
 
     dbContext.Users.Add(user);
@@ -44,5 +44,28 @@ app.MapPost("/register", async (RegisterRequest request, AppDbContext dbContext)
 
     return Results.Created($"/users/{user.Id}", user);
 });
+
+app.MapPost("/login", async (LoginRequest request, AppDbContext dbContext) =>
+{
+    // Find user by username or email
+    var user = await dbContext.Users
+        .FirstOrDefaultAsync(u => u.Username == request.Username || u.Email == request.Email);
+
+    if (user == null)
+    {
+        return Results.BadRequest("Invalid username/email or password.");
+    }
+
+    // Verify password
+    bool isValid = BCrypt.Net.BCrypt.Verify(request.Password, user.PasswordHash);
+    if (!isValid)
+    {
+        return Results.BadRequest("Invalid username/email or password.");
+    }
+
+    // For demo: return user info (do not return password hash in production)
+    return Results.Ok(new { user.Id, user.Username, user.Email });
+});
+
 
 app.Run();

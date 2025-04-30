@@ -1,11 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "Ger/FOqYQWs=",
+  "dgSpecHash": "fiU1nDN2U5M=",
   "success": true,
-  "projectFilePath": "C:\\Users\\i.ciobanu\\Documents\\GitHub\\TaskManagerPro\\TaskService\\TaskService.csproj",
+  "projectFilePath": "C:\\Users\\ednilson.sucuacuacue\\Documents\\GitHub\\TaskManagerPro\\TaskService\\TaskService.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\i.ciobanu\\.nuget\\packages\\microsoft.aspnetcore.openapi\\9.0.4\\microsoft.aspnetcore.openapi.9.0.4.nupkg.sha512",
-    "C:\\Users\\i.ciobanu\\.nuget\\packages\\microsoft.openapi\\1.6.17\\microsoft.openapi.1.6.17.nupkg.sha512"
+    "C:\\Users\\ednilson.sucuacuacue\\.nuget\\packages\\microsoft.aspnetcore.openapi\\9.0.4\\microsoft.aspnetcore.openapi.9.0.4.nupkg.sha512",
+    "C:\\Users\\ednilson.sucuacuacue\\.nuget\\packages\\microsoft.openapi\\1.6.17\\microsoft.openapi.1.6.17.nupkg.sha512"
   ],
   "logs": []
 }
