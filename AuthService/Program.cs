@@ -47,25 +47,21 @@ app.MapPost("/register", async (RegisterRequest request, AppDbContext dbContext)
 
 app.MapPost("/login", async (LoginRequest request, AppDbContext dbContext) =>
 {
-    // Find user by username or email
+    if (string.IsNullOrWhiteSpace(request.Username) || string.IsNullOrWhiteSpace(request.Password))
+    {
+        return Results.BadRequest("Username and password are required.");
+    }
+
     var user = await dbContext.Users
-        .FirstOrDefaultAsync(u => u.Username == request.Username || u.Email == request.Email);
+        .FirstOrDefaultAsync(u => u.Username == request.Username);
 
-    if (user == null)
+    if (user == null || string.IsNullOrWhiteSpace(user.PasswordHash) ||
+        !BCrypt.Net.BCrypt.Verify(request.Password, user.PasswordHash))
     {
-        return Results.BadRequest("Invalid username/email or password.");
+        return Results.BadRequest("Invalid username or password.");
     }
 
-    // Verify password
-    bool isValid = BCrypt.Net.BCrypt.Verify(request.Password, user.PasswordHash);
-    if (!isValid)
-    {
-        return Results.BadRequest("Invalid username/email or password.");
-    }
-
-    // For demo: return user info (do not return password hash in production)
-    return Results.Ok(new { user.Id, user.Username, user.Email });
+    return Results.Ok(new { user.Username, user.Email });
 });
-
 
 app.Run();
