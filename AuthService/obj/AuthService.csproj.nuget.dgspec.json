@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\ednilson.sucuacuacue\\Documents\\GitHub\\TaskManagerPro\\AuthService\\AuthService.csproj": {}
+    "C:\\Users\\i.ciobanu\\Documents\\GitHub\\TaskManagerPro\\AuthService\\AuthService.csproj": {}
   },
   "projects": {
-    "C:\\Users\\ednilson.sucuacuacue\\Documents\\GitHub\\TaskManagerPro\\AuthService\\AuthService.csproj": {
+    "C:\\Users\\i.ciobanu\\Documents\\GitHub\\TaskManagerPro\\AuthService\\AuthService.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ednilson.sucuacuacue\\Documents\\GitHub\\TaskManagerPro\\AuthService\\AuthService.csproj",
+        "projectUniqueName": "C:\\Users\\i.ciobanu\\Documents\\GitHub\\TaskManagerPro\\AuthService\\AuthService.csproj",
         "projectName": "AuthService",
-        "projectPath": "C:\\Users\\ednilson.sucuacuacue\\Documents\\GitHub\\TaskManagerPro\\AuthService\\AuthService.csproj",
-        "packagesPath": "C:\\Users\\ednilson.sucuacuacue\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ednilson.sucuacuacue\\Documents\\GitHub\\TaskManagerPro\\AuthService\\obj\\",
+        "projectPath": "C:\\Users\\i.ciobanu\\Documents\\GitHub\\TaskManagerPro\\AuthService\\AuthService.csproj",
+        "packagesPath": "C:\\Users\\i.ciobanu\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\i.ciobanu\\Documents\\GitHub\\TaskManagerPro\\AuthService\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\ednilson.sucuacuacue\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\i.ciobanu\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net9.0"
@@ -44,6 +44,10 @@
         "net9.0": {
           "targetAlias": "net9.0",
           "dependencies": {
+            "BCrypt.Net-Next": {
+              "target": "Package",
+              "version": "[4.0.3, )"
+            },
             "Microsoft.AspNetCore.OpenApi": {
               "target": "Package",
               "version": "[9.0.4, )"
