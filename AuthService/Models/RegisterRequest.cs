@@ -1,11 +1,18 @@
+using System.ComponentModel.DataAnnotations;
+
 namespace AuthService.Models
 {
     public class RegisterRequest
     {
+        [Required(ErrorMessage = "Username is required.")]
         public string Username { get; set; } = string.Empty;
-        public string Email { get; set; } = string.Empty;
-        public string Password { get; set; } = string.Empty;
 
-        // Additional fields can be added as needed, e.g., FirstName, LastName, etc.
+        [Required(ErrorMessage = "Email is required.")]
+        [EmailAddress(ErrorMessage = "Invalid email format.")]
+        public string Email { get; set; } = string.Empty;
+
+        [Required(ErrorMessage = "Password is required.")]
+        [MinLength(8, ErrorMessage = "Password must be at least 8 characters long.")]
+        public string Password { get; set; } = string.Empty;
     }
 }
