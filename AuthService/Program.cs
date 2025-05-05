@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using AuthService.Models; // Import the namespace for RegisterRequest
+using System.ComponentModel.DataAnnotations; // Required for ValidationResult
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -31,15 +32,32 @@ if (app.Environment.IsDevelopment())
 
 app.MapPost("/register", async (RegisterRequest request, AppDbContext dbContext) =>
 {
-    // Example logic for user registration
+    // Validate the request model
+    var validationResults = new List<ValidationResult>();
+    var validationContext = new ValidationContext(request);
+    if (!Validator.TryValidateObject(request, validationContext, validationResults, true))
+    {
+        return Results.BadRequest(validationResults.Select(vr => vr.ErrorMessage));
+    }
+
+    // Check if the username or email already exists
+    var existingUser = await dbContext.Users
+        .FirstOrDefaultAsync(u => u.Username == request.Username || u.Email == request.Email);
+
+    if (existingUser != null)
+    {
+        return Results.BadRequest("Username or email is already in use.");
+    }
+
+    // Create a new user
     var user = new User
     {
         Username = request.Username,
         Email = request.Email,
-        PasswordHash = BCrypt.Net.BCrypt.HashPassword(request.Password) 
+        PasswordHash = BCrypt.Net.BCrypt.HashPassword(request.Password) // Hash the password
     };
 
-    dbContext.Users.Add(user);
+    await dbContext.Users.AddAsync(user);
     await dbContext.SaveChangesAsync();
 
     return Results.Created($"/users/{user.Id}", user);
