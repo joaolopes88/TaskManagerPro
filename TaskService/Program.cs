@@ -20,16 +20,13 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-
-
 // Task endpoints
 
 app.MapPost("/api/tasks", async (TaskItem task, TaskDbContext db) => { 
     db.Tasks.Add(task);
     await db.SaveChangesAsync();
-    return Results.Created($"/api/tasks/{task.Id}", task);
+    return Results.Created($"/api/tasks/{task.TaskID}", task); // Use TaskID here
 });
-
 
 app.MapGet("/api/tasks/{id}", async (int id, TaskDbContext db) =>
 {
@@ -38,7 +35,7 @@ app.MapGet("/api/tasks/{id}", async (int id, TaskDbContext db) =>
 });
 
 app.MapPut("/api/tasks/{id}", async (int id, TaskItem updatedTask, TaskDbContext db) => { 
-    if (id != updatedTask.Id) return Results.BadRequest();
+    if (id != updatedTask.TaskID) return Results.BadRequest(); // Use TaskID here
     db.Entry(updatedTask).State = EntityState.Modified;
     await db.SaveChangesAsync();
     return Results.NoContent();
@@ -54,4 +51,3 @@ app.MapDelete("/api/tasks/{id}", async (int id, TaskDbContext db) =>
 });
 
 app.Run();
-

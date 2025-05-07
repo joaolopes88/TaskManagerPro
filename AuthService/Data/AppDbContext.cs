@@ -1,8 +1,12 @@
 using Microsoft.EntityFrameworkCore;
+using Shared; // Import the User class from the Shared project
 
-public class AppDbContext : DbContext
+namespace AuthService.Data
 {
-    public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) { }
+    public class AppDbContext : DbContext
+    {
+        public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) { }
 
-    public DbSet<User> Users { get; set; }
+        public DbSet<User> Users { get; set; } // Reference the Users table
+    }
 }

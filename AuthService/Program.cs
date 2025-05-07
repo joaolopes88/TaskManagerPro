@@ -1,6 +1,8 @@
 using Microsoft.EntityFrameworkCore;
 using AuthService.Models; // Import the namespace for RegisterRequest
+using AuthService.Data; // Import the namespace for AppDbContext
 using System.ComponentModel.DataAnnotations; // Required for ValidationResult
+using Shared; // Import the User class from the Shared project
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -10,7 +12,6 @@ builder.Services.AddSwaggerGen();
 // Add services to the container.
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection")));
-// ...rest of your code...
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
 
@@ -50,14 +51,14 @@ app.MapPost("/register", async (RegisterRequest request, AppDbContext dbContext)
     }
 
     // Create a new user
-    var user = new User
+    var user = new User // Use the User class from Shared
     {
         Username = request.Username,
         Email = request.Email,
         PasswordHash = BCrypt.Net.BCrypt.HashPassword(request.Password) // Hash the password
     };
 
-    await dbContext.Users.AddAsync(user);
+    dbContext.Users.Add(user); // Add the user to the database
     await dbContext.SaveChangesAsync();
 
     return Results.Created($"/users/{user.Id}", user);

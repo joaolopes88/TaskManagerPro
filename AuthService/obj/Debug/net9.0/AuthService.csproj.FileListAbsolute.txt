@@ -316,3 +316,5 @@ C:\Users\i.ciobanu\Documents\GitHub\TaskManagerPro\AuthService\obj\Debug\net9.0\
 C:\Users\i.ciobanu\Documents\GitHub\TaskManagerPro\AuthService\obj\Debug\net9.0\ref\AuthService.dll
 C:\Users\i.ciobanu\Documents\GitHub\TaskManagerPro\AuthService\bin\Debug\net9.0\BCrypt.Net-Next.dll
 C:\Users\ednilson.sucuacuacue\Documents\GitHub\TaskManagerPro\AuthService\bin\Debug\net9.0\BCrypt.Net-Next.dll
+C:\Users\i.ciobanu\Documents\GitHub\TaskManagerPro\AuthService\bin\Debug\net9.0\Shared.dll
+C:\Users\i.ciobanu\Documents\GitHub\TaskManagerPro\AuthService\bin\Debug\net9.0\Shared.pdb
